@@ -13,9 +13,10 @@ func (tn textNode) String() string {
 }
 
 type standardNode struct {
-	name       string
-	attributes map[string]string
-	children   []node
+	name           string
+	attributes     map[string]string
+	attributeOrder []string
+	children       []node
 }
 
 func (n standardNode) String() string {
@@ -36,8 +37,15 @@ func (n standardNode) String() string {
 	}
 
 	if len(n.attributes) > 0 {
-		for key, value := range n.attributes {
-			openTag = fmt.Sprintf("%s %s=\"%s\"", openTag, key, value)
+		if len(n.attributeOrder) > 0 {
+			for _, key := range n.attributeOrder {
+				value := n.attributes[key]
+				openTag = fmt.Sprintf("%s %s=\"%s\"", openTag, key, value)
+			}
+		} else {
+			for key, value := range n.attributes {
+				openTag = fmt.Sprintf("%s %s=\"%s\"", openTag, key, value)
+			}
 		}
 	}
 

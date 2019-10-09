@@ -15,6 +15,7 @@ func MetaCharset(charset string) headChildNode {
 			attributes: map[string]string{
 				"charset": charset,
 			},
+			attributeOrder: []string{"charset"},
 		},
 	}
 }
@@ -27,6 +28,7 @@ func MetaHTTPEquiv(header meta.HTTPEquiv, value string) headChildNode {
 				"http-equiv": header.String(),
 				"content":    value,
 			},
+			attributeOrder: []string{"http-equiv", "content"},
 		},
 	}
 }
@@ -39,6 +41,7 @@ func MetaInfo(name meta.Info, value string) headChildNode {
 				"name":    name.String(),
 				"content": value,
 			},
+			attributeOrder: []string{"name", "content"},
 		},
 	}
 }

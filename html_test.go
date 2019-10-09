@@ -3,6 +3,7 @@ package html
 import (
 	"testing"
 
+	"github.com/andreyvit/diff"
 	"github.com/sparkymat/html/meta"
 	"github.com/sparkymat/html/size"
 	"github.com/sparkymat/html/viewport"
@@ -68,6 +69,6 @@ func TestHtmlHead(t *testing.T) {
 </html>
 `
 	if hString != expectedString {
-		t.Errorf("Expected: %s\nHTML(): %s\n", expectedString, hString)
+		t.Errorf("%v", diff.LineDiff(expectedString, hString))
 	}
 }
