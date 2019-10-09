@@ -35,6 +35,8 @@ func TestHtmlHead(t *testing.T) {
 			Title("Hello World"),
 			MetaCharset("utf-8"),
 			MetaHTTPEquiv(meta.Refresh, "30"),
+			MetaInfo(meta.Author, "Charlie"),
+			MetaInfo(meta.Generator, "go"),
 			MetaViewport(
 				viewport.HeightDeviceHeight(),
 				viewport.Height(size.Px(200)),
@@ -57,6 +59,8 @@ func TestHtmlHead(t *testing.T) {
 <title>Hello World</title>
 <meta charset="utf-8" />
 <meta http-equiv="refresh" content="30" />
+<meta name="author" content="Charlie" />
+<meta name="generator" content="go" />
 <meta name="viewport" content="height=device-height, height=200px, width=device-width, width=100px, initial-scale=1, minimum-scale=1, maximum-scale=2, user-scalable=yes" />
 </head>
 <body>

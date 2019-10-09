@@ -49,5 +49,5 @@ func MetaViewport(attributes ...viewport.Attribute) headChildNode {
 		attributesStrings = append(attributesStrings, attribute.String())
 	}
 
-	return MetaInfo("viewport", strings.Join(attributesStrings, ", "))
+	return MetaInfo(meta.Viewport, strings.Join(attributesStrings, ", "))
 }
