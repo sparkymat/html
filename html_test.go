@@ -48,6 +48,11 @@ func TestHtmlHead(t *testing.T) {
 				viewport.MaximumScale(2.0),
 				viewport.UserScalable(true),
 			),
+			Base("http://www.example.com/app/", "_blank"),
+			Link("/style.css"),
+			Style("h1 {color: red;}"),
+			ScriptInline("console.log('Hello, world');"),
+			ScriptExternal("/index.js"),
 		),
 		Body(),
 	)
@@ -63,6 +68,11 @@ func TestHtmlHead(t *testing.T) {
 <meta name="author" content="Charlie" />
 <meta name="generator" content="go" />
 <meta name="viewport" content="height=device-height, height=200px, width=device-width, width=100px, initial-scale=1, minimum-scale=1, maximum-scale=2, user-scalable=yes" />
+<base href="http://www.example.com/app/" target="_blank" />
+<link rel="stylesheet" href="/style.css" />
+<style>h1 {color: red;}</style>
+<script>console.log('Hello, world');</script>
+<script src="/index.js" />
 </head>
 <body>
 </body>
