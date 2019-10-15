@@ -51,6 +51,9 @@ func nodeAsString(n node) string {
 
 	if hasCloseTag {
 		openTag = fmt.Sprintf("%s>", openTag)
+		if multiline {
+			openTag = fmt.Sprintf("%s\n", openTag)
+		}
 		closeTag = fmt.Sprintf("%s</%s>", closeTag, n.getName())
 	} else {
 		closeTag = fmt.Sprintf("%s />", closeTag)
