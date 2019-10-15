@@ -10,39 +10,33 @@ import (
 // MetaCharset returns a <meta> tag with the specified text
 func MetaCharset(charset string) headChildNode {
 	return headChildNode{
-		standardNode{
-			name: "meta",
-			attributes: map[string]string{
-				"charset": charset,
-			},
-			attributeOrder: []string{"charset"},
+		name: "meta",
+		attributes: map[string]string{
+			"charset": charset,
 		},
+		attributeOrder: []string{"charset"},
 	}
 }
 
 func MetaHTTPEquiv(header meta.HTTPEquiv, value string) headChildNode {
 	return headChildNode{
-		standardNode{
-			name: "meta",
-			attributes: map[string]string{
-				"http-equiv": header.String(),
-				"content":    value,
-			},
-			attributeOrder: []string{"http-equiv", "content"},
+		name: "meta",
+		attributes: map[string]string{
+			"http-equiv": header.String(),
+			"content":    value,
 		},
+		attributeOrder: []string{"http-equiv", "content"},
 	}
 }
 
 func MetaInfo(name meta.Info, value string) headChildNode {
 	return headChildNode{
-		standardNode{
-			name: "meta",
-			attributes: map[string]string{
-				"name":    name.String(),
-				"content": value,
-			},
-			attributeOrder: []string{"name", "content"},
+		name: "meta",
+		attributes: map[string]string{
+			"name":    name.String(),
+			"content": value,
 		},
+		attributeOrder: []string{"name", "content"},
 	}
 }
 

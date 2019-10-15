@@ -1,5 +1,7 @@
 package html
 
-func Text(text string) node {
-	return textNode(text)
+func Text(text string) bodyChildNode {
+	return bodyChildNode{
+		unsafeHTMLString: text,
+	}
 }
