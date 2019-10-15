@@ -1,7 +1,7 @@
 package html
 
-func Div(children ...bodyChildNode) bodyChildNode {
-	return bodyChildNode{
+func Div(children ...bodyNode) bodyNode {
+	return bodyNode{
 		name:     "div",
 		children: children,
 	}

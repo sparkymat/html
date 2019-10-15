@@ -1,17 +1,17 @@
 package html
 
-func H1(children ...bodyChildNode) bodyChildNode {
-	return bodyChildNode{
+func H1(children ...bodyNode) bodyNode {
+	return bodyNode{
 		name:     "h1",
 		children: children,
 	}
 }
 
-func P(body string) bodyChildNode {
-	return bodyChildNode{
+func P(body string) bodyNode {
+	return bodyNode{
 		name: "p",
-		children: []bodyChildNode{
-			bodyChildNode{
+		children: []bodyNode{
+			bodyNode{
 				unsafeHTMLString: body,
 			},
 		},

@@ -2,16 +2,16 @@ package html
 
 import "fmt"
 
-type headNode struct {
-	children []headChildNode
+type htmlHeadNode struct {
+	children []headNode
 }
 
 // Head returns a <head> node
-func Head(children ...headChildNode) headNode {
-	return headNode{children: children}
+func Head(children ...headNode) htmlHeadNode {
+	return htmlHeadNode{children: children}
 }
 
-func (h headNode) String() string {
+func (h htmlHeadNode) String() string {
 	nodeString := ""
 	for _, childNode := range h.children {
 		nodeString = fmt.Sprintf("%s%s", nodeString, childNode.String())

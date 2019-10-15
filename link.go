@@ -1,12 +1,12 @@
 package html
 
 type link struct {
-	bodyChildNode
+	bodyNode
 }
 
 func A() link {
 	return link{
-		bodyChildNode{
+		bodyNode{
 			name: "a",
 		},
 	}
@@ -14,10 +14,10 @@ func A() link {
 
 func (l link) Href(url string) link {
 	copiedLink := l
-	if copiedLink.bodyChildNode.attributes == nil {
-		copiedLink.bodyChildNode.attributes = make(map[string]string)
+	if copiedLink.bodyNode.attributes == nil {
+		copiedLink.bodyNode.attributes = make(map[string]string)
 	}
-	copiedLink.bodyChildNode.attributes["href"] = url
+	copiedLink.bodyNode.attributes["href"] = url
 
 	return copiedLink
 }

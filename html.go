@@ -3,16 +3,16 @@ package html
 import "fmt"
 
 // HTML returns an <html> document
-func HTML(head headNode, body bodyNode) htmlNode {
-	return htmlNode{head: head, body: body}
+func HTML(head htmlHeadNode, body htmlBodyNode) html {
+	return html{head: head, body: body}
 }
 
-type htmlNode struct {
-	head headNode
-	body bodyNode
+type html struct {
+	head htmlHeadNode
+	body htmlBodyNode
 }
 
-func (h htmlNode) String() string {
+func (h html) String() string {
 	return fmt.Sprintf(`<!DOCTYPE html>
 <html>
 %s%s</html>
