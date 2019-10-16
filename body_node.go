@@ -17,6 +17,7 @@ func (bn bodyNode) Class(classes ...string) bodyNode {
 	}
 
 	copiedNode.attributes["class"] = strings.Join(classes, " ")
+	copiedNode.attributeOrder = moveOrAppendToEnd(copiedNode.attributeOrder, "class")
 
 	return copiedNode
 }

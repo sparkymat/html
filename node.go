@@ -45,10 +45,6 @@ func nodeAsString(n node) string {
 		}
 	}
 
-	if multiline {
-		closeTag = fmt.Sprintf("\n")
-	}
-
 	if hasCloseTag {
 		openTag = fmt.Sprintf("%s>", openTag)
 		if multiline {
@@ -64,4 +60,18 @@ func nodeAsString(n node) string {
 		body = fmt.Sprintf("%s%s", body, nodeAsString(child))
 	}
 	return fmt.Sprintf("%s%s%s\n", openTag, body, closeTag)
+}
+
+func moveOrAppendToEnd(list []string, entry string) []string {
+	updatedList := []string{}
+
+	for _, item := range list {
+		if item != entry {
+			updatedList = append(updatedList, item)
+		}
+	}
+
+	updatedList = append(updatedList, entry)
+
+	return updatedList
 }
