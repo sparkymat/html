@@ -22,6 +22,30 @@ func (bn bodyNode) Class(classes ...string) bodyNode {
 	return copiedNode
 }
 
+func (bn bodyNode) Href(href string) bodyNode {
+	copiedNode := bn
+	if copiedNode.attributes == nil {
+		copiedNode.attributes = make(map[string]string)
+	}
+
+	copiedNode.attributes["href"] = href
+	copiedNode.attributeOrder = moveOrAppendToEnd(copiedNode.attributeOrder, "href")
+
+	return copiedNode
+}
+
+func (bn bodyNode) For(forId string) bodyNode {
+	copiedNode := bn
+	if copiedNode.attributes == nil {
+		copiedNode.attributes = make(map[string]string)
+	}
+
+	copiedNode.attributes["for"] = forId
+	copiedNode.attributeOrder = moveOrAppendToEnd(copiedNode.attributeOrder, "for")
+
+	return copiedNode
+}
+
 func (bn bodyNode) Attributes(attrs map[string]string) bodyNode {
 	copiedNode := bn
 	copiedNode.attributes = attrs
