@@ -28,6 +28,7 @@ I am making a note here!
 					A().Href("/cancel").Class("btn-secondary").Children(Text("Don't")),
 				),
 			),
+			Script("/script.js"),
 		),
 	)
 
@@ -52,6 +53,7 @@ I am making a note here!
 <a href="/cancel" class="btn-secondary">Don't</a>
 </div>
 </div>
+<script src="/script.js" />
 </body>
 </html>
 `
