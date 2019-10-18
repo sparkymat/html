@@ -1,49 +1,11 @@
 package html
 
-import "strings"
-
 type bodyNode struct {
 	name             string
 	attributes       map[string]string
 	attributeOrder   []string
 	children         []bodyNode
 	unsafeHTMLString string
-}
-
-func (bn bodyNode) Class(classes ...string) bodyNode {
-	copiedNode := bn
-	if copiedNode.attributes == nil {
-		copiedNode.attributes = make(map[string]string)
-	}
-
-	copiedNode.attributes["class"] = strings.Join(classes, " ")
-	copiedNode.attributeOrder = moveOrAppendToEnd(copiedNode.attributeOrder, "class")
-
-	return copiedNode
-}
-
-func (bn bodyNode) Href(href string) bodyNode {
-	copiedNode := bn
-	if copiedNode.attributes == nil {
-		copiedNode.attributes = make(map[string]string)
-	}
-
-	copiedNode.attributes["href"] = href
-	copiedNode.attributeOrder = moveOrAppendToEnd(copiedNode.attributeOrder, "href")
-
-	return copiedNode
-}
-
-func (bn bodyNode) For(forId string) bodyNode {
-	copiedNode := bn
-	if copiedNode.attributes == nil {
-		copiedNode.attributes = make(map[string]string)
-	}
-
-	copiedNode.attributes["for"] = forId
-	copiedNode.attributeOrder = moveOrAppendToEnd(copiedNode.attributeOrder, "for")
-
-	return copiedNode
 }
 
 func (bn bodyNode) Attributes(attrs map[string]string) bodyNode {
@@ -60,6 +22,22 @@ func (bn bodyNode) Children(children ...bodyNode) bodyNode {
 
 func (bn bodyNode) String() string {
 	return nodeAsString(bn)
+}
+
+func nodeWithChildren(tag string, children []bodyNode) bodyNode {
+	return bodyNode{
+		name:     tag,
+		children: children,
+	}
+}
+
+func nodeWithText(tag string, text string) bodyNode {
+	return bodyNode{
+		name: tag,
+		children: []bodyNode{
+			Text(text),
+		},
+	}
 }
 
 func (bn bodyNode) getUnsafeHTMLString() string      { return bn.unsafeHTMLString }
