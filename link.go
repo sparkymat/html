@@ -1,7 +1,7 @@
 package html
 
-func A() bodyNode {
-	return bodyNode{
+func A() BodyNode {
+	return BodyNode{
 		name: "a",
 	}
 }

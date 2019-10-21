@@ -2,10 +2,10 @@ package html
 
 import "github.com/sparkymat/html/input"
 
-func Label(text string) bodyNode { return nodeWithText("label", text) }
+func Label(text string) BodyNode { return nodeWithText("label", text) }
 
-func Input(inputType input.Type) bodyNode {
-	return bodyNode{
+func Input(inputType input.Type) BodyNode {
+	return BodyNode{
 		name: "input",
 		attributes: map[string]string{
 			"type": inputType.String(),

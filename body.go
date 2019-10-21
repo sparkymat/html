@@ -3,11 +3,11 @@ package html
 import "fmt"
 
 type htmlBodyNode struct {
-	children []bodyNode
+	children []BodyNode
 }
 
 // Body returns a <body> node
-func Body(children ...bodyNode) htmlBodyNode {
+func Body(children ...BodyNode) htmlBodyNode {
 	return htmlBodyNode{children: children}
 }
 

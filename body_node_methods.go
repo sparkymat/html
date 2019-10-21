@@ -2,7 +2,7 @@ package html
 
 import "strings"
 
-func (bn bodyNode) setAttribute(key string, value string) bodyNode {
+func (bn BodyNode) setAttribute(key string, value string) BodyNode {
 	copiedNode := bn
 	if copiedNode.attributes == nil {
 		copiedNode.attributes = make(map[string]string)
@@ -12,7 +12,7 @@ func (bn bodyNode) setAttribute(key string, value string) bodyNode {
 	return copiedNode
 }
 
-func (bn bodyNode) removeAttribute(key string) bodyNode {
+func (bn BodyNode) removeAttribute(key string) BodyNode {
 	copiedNode := bn
 	if copiedNode.attributes == nil {
 		copiedNode.attributes = make(map[string]string)
@@ -21,47 +21,47 @@ func (bn bodyNode) removeAttribute(key string) bodyNode {
 	return copiedNode
 }
 
-func (bn bodyNode) Class(classes ...string) bodyNode {
+func (bn BodyNode) Class(classes ...string) BodyNode {
 	return bn.setAttribute("class", strings.Join(classes, " "))
 }
 
-func (bn bodyNode) Href(href string) bodyNode {
+func (bn BodyNode) Href(href string) BodyNode {
 	return bn.setAttribute("href", href)
 }
 
-func (bn bodyNode) For(href string) bodyNode {
+func (bn BodyNode) For(href string) BodyNode {
 	return bn.setAttribute("for", href)
 }
 
-func (bn bodyNode) Placeholder(placeholder string) bodyNode {
+func (bn BodyNode) Placeholder(placeholder string) BodyNode {
 	return bn.setAttribute("placeholder", placeholder)
 }
 
-func (bn bodyNode) Value(value string) bodyNode {
+func (bn BodyNode) Value(value string) BodyNode {
 	return bn.setAttribute("value", value)
 }
 
-func (bn bodyNode) Accept(types string) bodyNode {
+func (bn BodyNode) Accept(types string) BodyNode {
 	return bn.setAttribute("accept", types)
 }
 
-func (bn bodyNode) Alt(text string) bodyNode {
+func (bn BodyNode) Alt(text string) BodyNode {
 	return bn.setAttribute("alt", text)
 }
 
-func (bn bodyNode) Name(text string) bodyNode {
+func (bn BodyNode) Name(text string) BodyNode {
 	return bn.setAttribute("name", text)
 }
 
-func (bn bodyNode) Pattern(text string) bodyNode {
+func (bn BodyNode) Pattern(text string) BodyNode {
 	return bn.setAttribute("pattern", text)
 }
 
-func (bn bodyNode) Autofocus() bodyNode {
+func (bn BodyNode) Autofocus() BodyNode {
 	return bn.setAttribute("autofocus", "autofocus")
 }
 
-func (bn bodyNode) AutoComplete(enabled bool) bodyNode {
+func (bn BodyNode) AutoComplete(enabled bool) BodyNode {
 	value := map[bool]string{
 		false: "on",
 		true:  "off",
@@ -69,7 +69,7 @@ func (bn bodyNode) AutoComplete(enabled bool) bodyNode {
 	return bn.setAttribute("autocomplete", value)
 }
 
-func (bn bodyNode) Checked(checked bool) bodyNode {
+func (bn BodyNode) Checked(checked bool) BodyNode {
 	if checked {
 		return bn.setAttribute("checked", "checked")
 	}
@@ -77,7 +77,7 @@ func (bn bodyNode) Checked(checked bool) bodyNode {
 	return bn.removeAttribute("checked")
 }
 
-func (bn bodyNode) Disabled(disabled bool) bodyNode {
+func (bn BodyNode) Disabled(disabled bool) BodyNode {
 	if disabled {
 		return bn.setAttribute("disabled", "disabled")
 	}
@@ -85,7 +85,7 @@ func (bn bodyNode) Disabled(disabled bool) bodyNode {
 	return bn.removeAttribute("disabled")
 }
 
-func (bn bodyNode) Readonly(readonly bool) bodyNode {
+func (bn BodyNode) Readonly(readonly bool) BodyNode {
 	if readonly {
 		return bn.setAttribute("readonly", "readonly")
 	}
@@ -93,7 +93,7 @@ func (bn bodyNode) Readonly(readonly bool) bodyNode {
 	return bn.removeAttribute("readonly")
 }
 
-func (bn bodyNode) Required(required bool) bodyNode {
+func (bn BodyNode) Required(required bool) BodyNode {
 	if required {
 		return bn.setAttribute("required", "required")
 	}
@@ -101,7 +101,7 @@ func (bn bodyNode) Required(required bool) bodyNode {
 	return bn.removeAttribute("required")
 }
 
-func (bn bodyNode) Multiple(multiple bool) bodyNode {
+func (bn BodyNode) Multiple(multiple bool) BodyNode {
 	if multiple {
 		return bn.setAttribute("multiple", "multiple")
 	}
@@ -109,10 +109,10 @@ func (bn bodyNode) Multiple(multiple bool) bodyNode {
 	return bn.removeAttribute("multiple")
 }
 
-func (bn bodyNode) Max(value string) bodyNode {
+func (bn BodyNode) Max(value string) BodyNode {
 	return bn.setAttribute("max", value)
 }
 
-func (bn bodyNode) Min(value string) bodyNode {
+func (bn BodyNode) Min(value string) BodyNode {
 	return bn.setAttribute("min", value)
 }

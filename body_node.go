@@ -1,48 +1,48 @@
 package html
 
-type bodyNode struct {
+type BodyNode struct {
 	name             string
 	attributes       map[string]string
 	attributeOrder   []string
-	children         []bodyNode
+	children         []BodyNode
 	unsafeHTMLString string
 }
 
-func (bn bodyNode) Attributes(attrs map[string]string) bodyNode {
+func (bn BodyNode) Attributes(attrs map[string]string) BodyNode {
 	copiedNode := bn
 	copiedNode.attributes = attrs
 	return copiedNode
 }
 
-func (bn bodyNode) Children(children ...bodyNode) bodyNode {
+func (bn BodyNode) Children(children ...BodyNode) BodyNode {
 	copiedNode := bn
 	copiedNode.children = children
 	return copiedNode
 }
 
-func (bn bodyNode) String() string {
+func (bn BodyNode) String() string {
 	return nodeAsString(bn)
 }
 
-func nodeWithChildren(tag string, children []bodyNode) bodyNode {
-	return bodyNode{
+func nodeWithChildren(tag string, children []BodyNode) BodyNode {
+	return BodyNode{
 		name:     tag,
 		children: children,
 	}
 }
 
-func nodeWithText(tag string, text string) bodyNode {
-	return bodyNode{
+func nodeWithText(tag string, text string) BodyNode {
+	return BodyNode{
 		name: tag,
-		children: []bodyNode{
+		children: []BodyNode{
 			Text(text),
 		},
 	}
 }
 
-func (bn bodyNode) getUnsafeHTMLString() string      { return bn.unsafeHTMLString }
-func (bn bodyNode) getName() string                  { return bn.name }
-func (bn bodyNode) getChildrenCount() int            { return len(bn.children) }
-func (bn bodyNode) getChildAt(index int) node        { return bn.children[index] }
-func (bn bodyNode) getAttributes() map[string]string { return bn.attributes }
-func (bn bodyNode) getAttributeOrder() []string      { return bn.attributeOrder }
+func (bn BodyNode) getUnsafeHTMLString() string      { return bn.unsafeHTMLString }
+func (bn BodyNode) getName() string                  { return bn.name }
+func (bn BodyNode) getChildrenCount() int            { return len(bn.children) }
+func (bn BodyNode) getChildAt(index int) node        { return bn.children[index] }
+func (bn BodyNode) getAttributes() map[string]string { return bn.attributes }
+func (bn BodyNode) getAttributeOrder() []string      { return bn.attributeOrder }
