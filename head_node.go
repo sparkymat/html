@@ -2,26 +2,26 @@ package html
 
 import "fmt"
 
-type headNode struct {
+type HeadNode struct {
 	name             string
 	attributes       map[string]string
 	attributeOrder   []string
 	unsafeHTMLString string
 }
 
-func (hn headNode) String() string {
+func (hn HeadNode) String() string {
 	return nodeAsString(hn)
 }
 
 // Title returns a <title> tag with the specified text
-func Title(text string) headNode {
-	return headNode{
+func Title(text string) HeadNode {
+	return HeadNode{
 		unsafeHTMLString: fmt.Sprintf("<title>%s</title>\n", text),
 	}
 }
 
-func Base(href string, target string) headNode {
-	return headNode{
+func Base(href string, target string) HeadNode {
+	return HeadNode{
 		name: "base",
 		attributes: map[string]string{
 			"href":   href,
@@ -31,14 +31,14 @@ func Base(href string, target string) headNode {
 	}
 }
 
-func Style(rules string) headNode {
-	return headNode{
+func Style(rules string) HeadNode {
+	return HeadNode{
 		unsafeHTMLString: fmt.Sprintf("<style>%s</style>\n", rules),
 	}
 }
 
-func Link(href string) headNode {
-	return headNode{
+func Link(href string) HeadNode {
+	return HeadNode{
 		name: "link",
 		attributes: map[string]string{
 			"rel":  "stylesheet",
@@ -48,14 +48,14 @@ func Link(href string) headNode {
 	}
 }
 
-func ScriptInline(body string) headNode {
-	return headNode{
+func ScriptInline(body string) HeadNode {
+	return HeadNode{
 		unsafeHTMLString: fmt.Sprintf("<script>%s</script>\n", body),
 	}
 }
 
-func ScriptExternal(href string) headNode {
-	return headNode{
+func ScriptExternal(href string) HeadNode {
+	return HeadNode{
 		name: "script",
 		attributes: map[string]string{
 			"src": href,
@@ -63,9 +63,9 @@ func ScriptExternal(href string) headNode {
 	}
 }
 
-func (hn headNode) getUnsafeHTMLString() string      { return hn.unsafeHTMLString }
-func (hn headNode) getName() string                  { return hn.name }
-func (hn headNode) getChildrenCount() int            { return 0 }
-func (hn headNode) getChildAt(index int) node        { return nil }
-func (hn headNode) getAttributes() map[string]string { return hn.attributes }
-func (hn headNode) getAttributeOrder() []string      { return hn.attributeOrder }
+func (hn HeadNode) getUnsafeHTMLString() string      { return hn.unsafeHTMLString }
+func (hn HeadNode) getName() string                  { return hn.name }
+func (hn HeadNode) getChildrenCount() int            { return 0 }
+func (hn HeadNode) getChildAt(index int) node        { return nil }
+func (hn HeadNode) getAttributes() map[string]string { return hn.attributes }
+func (hn HeadNode) getAttributeOrder() []string      { return hn.attributeOrder }

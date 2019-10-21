@@ -8,8 +8,8 @@ import (
 )
 
 // MetaCharset returns a <meta> tag with the specified text
-func MetaCharset(charset string) headNode {
-	return headNode{
+func MetaCharset(charset string) HeadNode {
+	return HeadNode{
 		name: "meta",
 		attributes: map[string]string{
 			"charset": charset,
@@ -18,8 +18,8 @@ func MetaCharset(charset string) headNode {
 	}
 }
 
-func MetaHTTPEquiv(header meta.HTTPEquiv, value string) headNode {
-	return headNode{
+func MetaHTTPEquiv(header meta.HTTPEquiv, value string) HeadNode {
+	return HeadNode{
 		name: "meta",
 		attributes: map[string]string{
 			"http-equiv": header.String(),
@@ -29,8 +29,8 @@ func MetaHTTPEquiv(header meta.HTTPEquiv, value string) headNode {
 	}
 }
 
-func MetaInfo(name meta.Info, value string) headNode {
-	return headNode{
+func MetaInfo(name meta.Info, value string) HeadNode {
+	return HeadNode{
 		name: "meta",
 		attributes: map[string]string{
 			"name":    name.String(),
@@ -40,7 +40,7 @@ func MetaInfo(name meta.Info, value string) headNode {
 	}
 }
 
-func MetaViewport(attributes ...viewport.Attribute) headNode {
+func MetaViewport(attributes ...viewport.Attribute) HeadNode {
 	attributesStrings := []string{}
 	for _, attribute := range attributes {
 		attributesStrings = append(attributesStrings, attribute.String())
