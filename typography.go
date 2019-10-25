@@ -10,3 +10,6 @@ func P(text string) BodyNode      { return nodeWithText("p", text) }
 func Strong(text string) BodyNode { return nodeWithText("strong", text) }
 func Em(text string) BodyNode     { return nodeWithText("em", text) }
 func Code(text string) BodyNode   { return nodeWithText("code", text) }
+
+func Br() BodyNode { return BodyNode{name: "br"} }
+func Hr() BodyNode { return BodyNode{name: "hr"} }
