@@ -24,5 +24,6 @@ func Input(inputType input.Type) BodyNode {
 		attributes: map[string]string{
 			"type": inputType.String(),
 		},
+		attributeOrder: []string{"type"},
 	}
 }
