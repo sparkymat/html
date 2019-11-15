@@ -9,6 +9,7 @@ type node interface {
 	getChildAt(int) node
 	getAttributes() map[string]string
 	getAttributeOrder() []string
+	getAlwaysCloseTag() bool
 }
 
 func nodeAsString(n node) string {
@@ -45,7 +46,7 @@ func nodeAsString(n node) string {
 		}
 	}
 
-	if hasCloseTag {
+	if hasCloseTag || n.getAlwaysCloseTag() {
 		openTag = fmt.Sprintf("%s>", openTag)
 		if multiline {
 			openTag = fmt.Sprintf("%s\n", openTag)

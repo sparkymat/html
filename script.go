@@ -9,5 +9,6 @@ func Script(src string) BodyNode {
 		attributeOrder: []string{
 			"src",
 		},
+		alwaysCloseTag: true,
 	}
 }

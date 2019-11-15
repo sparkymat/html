@@ -7,6 +7,7 @@ type HeadNode struct {
 	attributes       map[string]string
 	attributeOrder   []string
 	unsafeHTMLString string
+	alwaysCloseTag   bool
 }
 
 func (hn HeadNode) String() string {
@@ -69,3 +70,4 @@ func (hn HeadNode) getChildrenCount() int            { return 0 }
 func (hn HeadNode) getChildAt(index int) node        { return nil }
 func (hn HeadNode) getAttributes() map[string]string { return hn.attributes }
 func (hn HeadNode) getAttributeOrder() []string      { return hn.attributeOrder }
+func (hn HeadNode) getAlwaysCloseTag() bool          { return hn.alwaysCloseTag }

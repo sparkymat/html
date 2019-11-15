@@ -6,6 +6,7 @@ type BodyNode struct {
 	attributeOrder   []string
 	children         []BodyNode
 	unsafeHTMLString string
+	alwaysCloseTag   bool
 }
 
 func (bn BodyNode) Attributes(attrs map[string]string) BodyNode {
@@ -46,3 +47,4 @@ func (bn BodyNode) getChildrenCount() int            { return len(bn.children) }
 func (bn BodyNode) getChildAt(index int) node        { return bn.children[index] }
 func (bn BodyNode) getAttributes() map[string]string { return bn.attributes }
 func (bn BodyNode) getAttributeOrder() []string      { return bn.attributeOrder }
+func (bn BodyNode) getAlwaysCloseTag() bool          { return bn.alwaysCloseTag }
