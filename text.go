@@ -5,3 +5,9 @@ func Text(text string) BodyNode {
 		unsafeHTMLString: text,
 	}
 }
+
+func Span() BodyNode {
+	return BodyNode{
+		name: "span",
+	}
+}
