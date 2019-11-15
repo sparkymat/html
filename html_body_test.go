@@ -15,7 +15,7 @@ func TestDiv(t *testing.T) {
 			),
 			Div().Class("card").Children(
 				Div().Class("card-header").Children(
-					H1().Class("card-title").Children(Text("Hello")),
+					H1("").Class("card-title").Children(Text("Hello")),
 				),
 				Div().Class("card-body").Children(
 					P(`
