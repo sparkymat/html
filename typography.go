@@ -9,6 +9,7 @@ func H6(text string) BodyNode     { return nodeWithText("h6", text) }
 func P(text string) BodyNode      { return nodeWithText("p", text) }
 func Strong(text string) BodyNode { return nodeWithText("strong", text) }
 func Em(text string) BodyNode     { return nodeWithText("em", text) }
+func I(text string) BodyNode      { return nodeWithText("i", text) }
 func Code(text string) BodyNode   { return nodeWithText("code", text) }
 
 func Br() BodyNode { return BodyNode{name: "br"} }
