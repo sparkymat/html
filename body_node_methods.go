@@ -120,7 +120,3 @@ func (bn BodyNode) Min(value string) BodyNode {
 func (bn BodyNode) Src(value string) BodyNode {
 	return bn.setAttribute("src", value)
 }
-
-func (bn BodyNode) Alt(value string) BodyNode {
-	return bn.setAttribute("alt", value)
-}
