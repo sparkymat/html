@@ -132,3 +132,7 @@ func (bn BodyNode) Height(value string) BodyNode {
 func (bn BodyNode) Poster(value string) BodyNode {
 	return bn.setAttribute("poster", value)
 }
+
+func (bn BodyNode) Id(value string) BodyNode {
+	return bn.setAttribute("id", value)
+}
