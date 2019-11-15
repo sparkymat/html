@@ -6,5 +6,8 @@ func Script(src string) BodyNode {
 		attributes: map[string]string{
 			"src": src,
 		},
+		attributeOrder: []string{
+			"src",
+		},
 	}
 }
