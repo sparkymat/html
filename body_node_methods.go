@@ -120,3 +120,15 @@ func (bn BodyNode) Min(value string) BodyNode {
 func (bn BodyNode) Src(value string) BodyNode {
 	return bn.setAttribute("src", value)
 }
+
+func (bn BodyNode) Width(value string) BodyNode {
+	return bn.setAttribute("width", value)
+}
+
+func (bn BodyNode) Height(value string) BodyNode {
+	return bn.setAttribute("height", value)
+}
+
+func (bn BodyNode) Poster(value string) BodyNode {
+	return bn.setAttribute("poster", value)
+}
