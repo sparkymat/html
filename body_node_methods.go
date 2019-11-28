@@ -1,6 +1,9 @@
 package html
 
-import "strings"
+import (
+	"fmt"
+	"strings"
+)
 
 func (bn BodyNode) setAttribute(key string, value string) BodyNode {
 	copiedNode := bn
@@ -135,4 +138,8 @@ func (bn BodyNode) Poster(value string) BodyNode {
 
 func (bn BodyNode) Id(value string) BodyNode {
 	return bn.setAttribute("id", value)
+}
+
+func (bn BodyNode) Data(key string, value string) BodyNode {
+	return bn.setAttribute(fmt.Sprintf("data-%s", key), value)
 }
