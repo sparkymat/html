@@ -61,6 +61,7 @@ func ScriptExternal(href string) HeadNode {
 		attributes: map[string]string{
 			"src": href,
 		},
+		alwaysCloseTag: true,
 	}
 }
 
