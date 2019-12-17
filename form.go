@@ -3,6 +3,7 @@ package html
 import (
 	"github.com/sparkymat/html/input"
 	"github.com/sparkymat/html/method"
+	"github.com/sparkymat/html/selectoption"
 )
 
 func Label(text string) BodyNode { return nodeWithText("label", text) }
@@ -34,24 +35,24 @@ func Select() BodyNode {
 	}
 }
 
-func Option(label string, value string) BodyNode {
+func Option(option selectoption.Type) BodyNode {
 	return BodyNode{
 		name: "option",
 		attributes: map[string]string{
-			"value": value,
+			"value": option.Value,
 		},
 		attributeOrder: []string{"value"},
 		children: []BodyNode{
-			Text(label),
+			Text(option.Label),
 		},
 	}
 }
 
-func SelectWithOptions(name string, multiple bool, options map[string]string, currentValue string) BodyNode {
+func SelectWithOptions(name string, multiple bool, options []selectoption.Type, currentValue string) BodyNode {
 	optionNodes := []BodyNode{}
 
-	for value, label := range options {
-		optionNodes = append(optionNodes, Option(label, value).Selected(currentValue == value))
+	for _, option := range options {
+		optionNodes = append(optionNodes, Option(option).Selected(currentValue == option.Value))
 	}
 
 	return Select().Name(name).Multiple(multiple).Children(optionNodes...)
