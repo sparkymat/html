@@ -143,3 +143,11 @@ func (bn BodyNode) Id(value string) BodyNode {
 func (bn BodyNode) Data(key string, value string) BodyNode {
 	return bn.setAttribute(fmt.Sprintf("data-%s", key), value)
 }
+
+func (bn BodyNode) Selected(selected bool) BodyNode {
+	if selected {
+		return bn.setAttribute("selected", "selected")
+	}
+
+	return bn.removeAttribute("selected")
+}
