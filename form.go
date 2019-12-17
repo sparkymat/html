@@ -8,6 +8,13 @@ import (
 
 func Label(text string) BodyNode { return nodeWithText("label", text) }
 
+func LabelWithChildren(children ...BodyNode) BodyNode {
+	return BodyNode{
+		name:     "label",
+		children: children,
+	}
+}
+
 func Form(action string, m method.Type) BodyNode {
 	return BodyNode{
 		name: "form",
