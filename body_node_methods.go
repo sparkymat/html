@@ -151,3 +151,11 @@ func (bn BodyNode) Selected(selected bool) BodyNode {
 
 	return bn.removeAttribute("selected")
 }
+
+func (bn BodyNode) ColSpan(value int) BodyNode {
+	return bn.setAttribute("colspan", fmt.Sprintf("%d", value))
+}
+
+func (bn BodyNode) RowSpan(value int) BodyNode {
+	return bn.setAttribute("rowspan", fmt.Sprintf("%d", value))
+}
