@@ -159,3 +159,7 @@ func (bn BodyNode) ColSpan(value int) BodyNode {
 func (bn BodyNode) RowSpan(value int) BodyNode {
 	return bn.setAttribute("rowspan", fmt.Sprintf("%d", value))
 }
+
+func (bn BodyNode) WithText(text string) BodyNode {
+	return bn.Children(Text(text))
+}
